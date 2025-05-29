@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Médicos Domiciliarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="Servicios médicos a domicilio - Atención médica en casa">
+    <meta name="keywords" content="servicios médicos, atención domiciliaria, médicos a domicilio">
+    <meta property="og:title" content="Servicios Médicos Domiciliarios">
+    <meta property="og:description" content="Atención médica profesional en la comodidad de tu hogar">
+    <meta property="og:url" content="http://localhost:8000">
+    <meta property="og:type" content="website">
+    <script>
+        // Mejorar la compartibilidad de enlaces
+        function shareLink() {
+            const url = window.location.href;
+            const title = document.title;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(console.error);
+            } else {
+                // Copiar enlace al portapapeles
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Enlace copiado al portapapeles!');
+                }).catch(console.error);
+            }
+        }
+
+        // Añadir enlace de compartir
+        document.addEventListener('DOMContentLoaded', () => {
+            const shareButton = document.createElement('button');
+            shareButton.innerHTML = '<i class="fas fa-share-alt"></i> Compartir';
+            shareButton.className = 'share-button';
+            shareButton.onclick = shareLink;
+            
+            // Añadir el botón en un lugar visible
+            const header = document.querySelector('header');
+            if (header) {
+                header.appendChild(shareButton);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Servicios Médicos</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#cotizacion">Cotización</a></li>
+                <li><a href="#pagos">Pagos</a></li>
+                <li><a href="#seguimiento">Seguimiento</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Servicios Médicos Domiciliarios</h1>
+                <p>Cuidado profesional en la comodidad de tu hogar</p>
+    <section id="servicios" class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-syringe"></i>
+                <h3>Sueroterapia</h3>
+                <p>Administramos sueros intravenosos de manera profesional y segura</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-syringe"></i>
+                <h3>Inyectología</h3>
+                <p>Aplicación de medicamentos por vía intramuscular y subcutánea</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tint"></i>
+                <h3>Paso de líquidos en venas</h3>
+                <p>Infusiones intravenosas y manejo de vías de acceso</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lungs"></i>
+                <h3>Nebulizaciones</h3>
+                <p>Tratamiento respiratorio con medicamentos inhalados</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bandage"></i>
+                <h3>Curaciones</h3>
+                <p>Cambio de curaciones y cuidado de heridas</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Toma de signos vitales</h3>
+                <p>Monitoreo constante de parámetros vitales</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hospital-user"></i>
+                <h3>Acompañamiento a consultas</h3>
+                <p>Asistencia en consultas médicas y procedimientos</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Cuidado en casa</h3>
+                <p>Atención integral en el hogar</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hospital"></i>
+                <h3>Cuidado hospitalario</h3>
+                <p>Atención especializada en entorno hospitalario</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cotizacion" class="cotizacion">
+        <h2>Solicitar Cotización</h2>
+        <form id="cotizacion-form" onsubmit="enviarSolicitud(event)">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="servicio">Servicio requerido:</label>
+                <select id="servicio" required>
+                    <option value="">Seleccione un servicio</option>
+                    <option value="sueroterapia">Sueroterapia</option>
+                    <option value="inyectologia">Inyectología</option>
+                    <option value="paso-liquidos">Paso de líquidos en venas</option>
+                    <option value="nebulizaciones">Nebulizaciones</option>
+                    <option value="curaciones">Curaciones</option>
+                    <option value="signos-vitales">Toma de signos vitales</option>
+                    <option value="acompanamiento">Acompañamiento a consultas</option>
+                    <option value="cuidado-casa">Cuidado en casa</option>
+                    <option value="cuidado-hospitalario">Cuidado hospitalario</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary">Solicitar Cotización</button>
+        </form>
+    </section>
+
+    <section id="pagos" class="pagos">
+        <h2>Métodos de Pago</h2>
+        <div class="payment-methods">
+            <div class="payment-card">
+                <h3>Pago en Línea</h3>
+                <p>Paga con tarjeta de crédito o débito</p>
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="payment-card">
+                <h3>Transferencia Bancaria</h3>
+                <p>Realiza el pago a través de tu banco</p>
+                <i class="fas fa-university"></i>
+            </div>
+            <div class="payment-card">
+                <h3>Efectivo</h3>
+                <p>Pago directo en efectivo</p>
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="seguimiento" class="seguimiento">
+        <h2>Seguimiento de Servicios</h2>
+        <div class="tracking-form">
+            <h3>Consulta tu servicio</h3>
+            <form>
+                <div class="form-group">
+                    <label for="codigo">Código de seguimiento:</label>
+                    <input type="text" id="codigo" required>
+                </div>
+                <button type="submit" class="btn-primary">Consultar</button>
+            </form>
+        </div>
+        <div class="tracking-info">
+            <h3>Estado del servicio</h3>
+            <p>Estado: <span id="estado">En proceso</span></p>
+            <p>Fecha programada: <span id="fecha">-</span></p>
+            <p>Profesional asignado: <span id="profesional">-</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Teléfono: (XXX) XXX-XXXX</p>
+                <p>Email: info@serviciosmedicos.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Horario</h4>
+                <p>Lunes a Domingo</p>
+                <p>24 horas</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Servicios Médicos Domiciliarios. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
